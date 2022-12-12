@@ -8,7 +8,6 @@ const { userRouter } = require("./Routes/User.routes");
 
 const { authentication } = require("./middleware/authentication");
 
-require(`dotenv`).config();
 
 
 const app = express();
@@ -28,7 +27,7 @@ app.use(authentication)
 
 app.use(`/todo`, todoRouter)
 
-app.listen(process.env.port, async () => {
+app.listen(8080, async () => {
     try {
         await connection
         console.log("connected sucess");
@@ -36,5 +35,5 @@ app.listen(process.env.port, async () => {
     catch (e) {
         console.log(e);
     }
-    console.log(`listening to port http://localhost:${process.env.port}`)
+    console.log(`listening to port http://localhost:8080`)
 })
